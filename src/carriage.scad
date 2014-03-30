@@ -4,13 +4,14 @@ module carriage() {
     totalZ = 25;
 
     holeX = 5;
-    holeY = 5;
+    holeY = 0;
     holeZ = 20;
 
     // A hole for attaching a component
     module component_hole() {
-        translate([4, 0, -holeZ + 1])
-            cube([holeX, holeY, holeZ]);
+        translate([6, 0, -holeZ + 1])
+            //cube([holeX, holeY, holeZ]);
+            cylinder(r=3,h=holeZ);
     }
 
     // Ball bearing variables
@@ -21,7 +22,7 @@ module carriage() {
     ballBearingRow2X = totalX - ballBearingRow1X - 25;
 
     // Component hole variables
-    distanceFromSide = 5;
+    distanceFromSide = 8.5;
 
     difference() {
         cube([totalX, totalY, totalZ]);
