@@ -12,8 +12,8 @@ module y_axis_base() {
 
         // The ball bearings
         for(i=[1:2*rb]) {
-                        translate([20,33+offset,(i/2)+offset])rotate([90,90,0])ball_bearing_fitting();
-                        translate([20,72+offset,(i/2)+offset])rotate([90,90,0])ball_bearing_fitting();
+                        translate([20,33,(i/2)+offset])rotate([90,90,0])ball_bearing_fitting();
+                        translate([20,72,(i/2)+offset])rotate([90,90,0])ball_bearing_fitting();
         }
 
         // The ball bearing screw holes
