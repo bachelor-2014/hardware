@@ -25,4 +25,3 @@ include <camera_component.scad>
 *rotate([0, 180, 0]) y_axis_holder_without_motor();
 *rotate([180, 0, 0]) carriage();
 rotate([0, 180, 0]) camera_component();
-*component_holes();

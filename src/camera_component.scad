@@ -6,15 +6,15 @@ module camera_component_plate() {
     cube([totalX, totalY + 30, 6]);
 
     module screw_hole() {
-        cylinder(r=3,h=20);
+        cylinder(r=1.5,h=20);
     }
 
     edgeDistance = 6;
 
-    #translate([edgeDistance, edgeDistance, -2]) screw_hole();
-    #translate([totalX - edgeDistance, edgeDistance, -2]) screw_hole();
-    #translate([edgeDistance, totalY - edgeDistance + 30, -2]) screw_hole();
-    #translate([totalX - edgeDistance, totalY - edgeDistance + 30, -2]) screw_hole();
+    translate([edgeDistance, edgeDistance, -2]) screw_hole();
+    translate([totalX - edgeDistance, edgeDistance, -2]) screw_hole();
+    translate([edgeDistance, totalY - edgeDistance + 30, -2]) screw_hole();
+    translate([totalX - edgeDistance, totalY - edgeDistance + 30, -2]) screw_hole();
 }
 
 module camera_component() {
