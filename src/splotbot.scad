@@ -2,6 +2,7 @@ include <variables.scad>
 include <nema14.scad>
 include <ball_bearing_fitting.scad>
 include <pulley_holder_cutout.scad>
+include <component_holes.scad>
 include <frame.scad>
 include <y_axis_base.scad>
 include <y_axis_holder_without_motor.scad>

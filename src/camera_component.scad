@@ -1,3 +1,22 @@
+module camera_component_plate() {
+    totalX = 46.5;
+    totalY = 82;
+    totalZ = 35;
+
+    cube([totalX, totalY + 30, 6]);
+
+    module screw_hole() {
+        cylinder(r=3,h=20);
+    }
+
+    edgeDistance = 6;
+
+    #translate([edgeDistance, edgeDistance, -2]) screw_hole();
+    #translate([totalX - edgeDistance, edgeDistance, -2]) screw_hole();
+    #translate([edgeDistance, totalY - edgeDistance + 30, -2]) screw_hole();
+    #translate([totalX - edgeDistance, totalY - edgeDistance + 30, -2]) screw_hole();
+}
+
 module camera_component() {
     totalX = 46.5;
     totalY = 82;
@@ -25,25 +44,19 @@ module camera_component() {
 
     union() {
         difference () {
-            translate([0, 0, 0]) cube([totalX, totalY, totalZ]);
+            union() {
+                translate([0, 0, 0]) cube([totalX, totalY, totalZ]);
+                translate([0, -15, totalZ - innerTranslateY]) camera_component_plate();
+            }
 
-            translate([innerTranslateX, innerTranslateY, innerTranslateZ]) cube([innerX, innerY, innerZ]);
+            translate([innerTranslateX, innerTranslateY, innerTranslateZ+12]) cube([innerX, innerY, innerZ]);
             translate([innerInnerTranslateX, innerInnerTranslateY, innerInnerTranslateZ]) cube([innerInnerX, innerInnerY, innerInnerZ]);
             translate([carriageTranslateX, carriageTranslateY, carriageTranslateZ]) carriage();
+            translate([-1.5, 6, 20]) component_holes();
         }
 
         translate([0, 6, 0]) cube([totalX, 2, 4]);
         translate([0, innerY + 4, 0]) cube([totalX, 2, 4]);
-
-        
-        translate([0, -2.5, 0]) {
-            difference() {
-                translate([0, 20, totalZ]) cube([totalX, 40, 6]);
-
-                translate([5, 25, totalZ]) cube([totalX - 10, 60, 3]);
-                translate([10, 30, totalZ]) cube([totalX - 20, 55, 15]);
-            }
-        }
     }
     
 }
