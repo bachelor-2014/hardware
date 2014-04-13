@@ -19,6 +19,14 @@ module camera_component_plate() {
     }
 }
 
+module camera_component_plate_with_hole(){
+    difference(){
+        camera_component_plate();
+        *translate([23.25,55,-1])cylinder(r=20.5,h=20);
+        translate([23.25,55,8])sphere(r=20.5);
+    }
+}
+
 module camera_component() {
     totalX = 46.5;
     totalY = 82;
